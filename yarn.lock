@@ -283,7 +283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/keccak256@npm:^5.7.0":
+"@ethersproject/keccak256@npm:^5.0.0-beta.130, @ethersproject/keccak256@npm:^5.7.0":
   version: 5.7.0
   resolution: "@ethersproject/keccak256@npm:5.7.0"
   dependencies:
@@ -995,6 +995,48 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@web3-react/abstract-connector@npm:^6.0.7":
+  version: 6.0.7
+  resolution: "@web3-react/abstract-connector@npm:6.0.7"
+  dependencies:
+    "@web3-react/types": "npm:^6.0.7"
+  checksum: 10/958002587a0543676537382ccbd1eb17ef5f5f59451b324b243377c3685409f08a2f77ca371e09f926693159ec83b2517566ea178eca38a64ed564feeadb3adc
+  languageName: node
+  linkType: hard
+
+"@web3-react/core@npm:^6.1.9":
+  version: 6.1.9
+  resolution: "@web3-react/core@npm:6.1.9"
+  dependencies:
+    "@ethersproject/keccak256": "npm:^5.0.0-beta.130"
+    "@web3-react/abstract-connector": "npm:^6.0.7"
+    "@web3-react/types": "npm:^6.0.7"
+    tiny-invariant: "npm:^1.0.6"
+    tiny-warning: "npm:^1.0.3"
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 10/6ed833b32abfede93c70bb73c484441ec8b640c234fc23d2a66222fa8ba776d71dd81f2a6b32c60035b2a844184a2ff8d81c0fd1b7db075f184078d90569a843
+  languageName: node
+  linkType: hard
+
+"@web3-react/injected-connector@npm:^6.0.7":
+  version: 6.0.7
+  resolution: "@web3-react/injected-connector@npm:6.0.7"
+  dependencies:
+    "@web3-react/abstract-connector": "npm:^6.0.7"
+    "@web3-react/types": "npm:^6.0.7"
+    tiny-warning: "npm:^1.0.3"
+  checksum: 10/6baf3df7b85f465e49b311d19df074b45bdcf55abfc6921cef31eb37b9b9c6c69fcbcc61fd5cff97250de85cd6374ab8d0d32e179cd6beff3935b6b174ab3460
+  languageName: node
+  linkType: hard
+
+"@web3-react/types@npm:^6.0.7":
+  version: 6.0.7
+  resolution: "@web3-react/types@npm:6.0.7"
+  checksum: 10/ceef2d271406b50932230d8490d6948000edfe078a4ab02d910ffafa1dbd93092840889d476a7722636b40d7b3eee6e58068c46465f02a6f60d83a94ea29da35
+  languageName: node
+  linkType: hard
+
 "@zk-kit/incremental-merkle-tree@npm:0.4.3":
   version: 0.4.3
   resolution: "@zk-kit/incremental-merkle-tree@npm:0.4.3"
@@ -1395,6 +1437,8 @@ __metadata:
     "@types/node": "npm:20.5.9"
     "@types/react": "npm:18.2.21"
     "@types/react-dom": "npm:18.2.7"
+    "@web3-react/core": "npm:^6.1.9"
+    "@web3-react/injected-connector": "npm:^6.0.7"
     autoprefixer: "npm:10.4.15"
     eslint: "npm:8.48.0"
     eslint-config-next: "npm:13.4.19"
@@ -5202,6 +5246,20 @@ __metadata:
   dependencies:
     any-promise: "npm:^1.0.0"
   checksum: 10/486e1283a867440a904e36741ff1a177faa827cf94d69506f7e3ae4187b9afdf9ec368b3d8da225c192bfe2eb943f3f0080594156bf39f21b57cd1411e2e7f6d
+  languageName: node
+  linkType: hard
+
+"tiny-invariant@npm:^1.0.6":
+  version: 1.3.3
+  resolution: "tiny-invariant@npm:1.3.3"
+  checksum: 10/5e185c8cc2266967984ce3b352a4e57cb89dad5a8abb0dea21468a6ecaa67cd5bb47a3b7a85d08041008644af4f667fb8b6575ba38ba5fb00b3b5068306e59fe
+  languageName: node
+  linkType: hard
+
+"tiny-warning@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "tiny-warning@npm:1.0.3"
+  checksum: 10/da62c4acac565902f0624b123eed6dd3509bc9a8d30c06e017104bedcf5d35810da8ff72864400ad19c5c7806fc0a8323c68baf3e326af7cb7d969f846100d71
   languageName: node
   linkType: hard
 

@@ -1,40 +1,45 @@
 import { Identity } from "@semaphore-protocol/identity"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
+import { useWeb3React } from "@web3-react/core"
+import { InjectedConnector } from "@web3-react/injected-connector"
+import { BrowserProvider } from "ethers"
 import Stepper from "@/components/stepper"
 import Divider from "@/components/divider"
 
+const injectedConnector = new InjectedConnector({})
+
 export default function Home() {
   const router = useRouter()
+
+  const { activate, active, library, account } = useWeb3React<BrowserProvider>()
 
   const [_identity, setIdentity] = useState<Identity>()
 
   const localStorageTag = process.env.NEXT_PUBLIC_LOCAL_STORAGE_TAG!
 
   useEffect(() => {
-    const identityString = localStorage.getItem(localStorageTag)
+    ;(async () => {
+      if (await injectedConnector.isAuthorized()) {
+        await activate(injectedConnector)
+      }
+    })()
+  }, [activate])
 
-    if (identityString) {
-      const identity = new Identity(identityString)
+  const createIdentity = async () => {
+    if (account && library) {
+      const signer = library.getSigner(account)
+
+      const message = `Sign this message to generate your Semaphore identity.`
+      const signature = await (await signer).signMessage(message)
+      const identity = new Identity(signature)
 
       setIdentity(identity)
 
-      console.log(
-        "Your Semaphore identity was retrieved from the browser cache 👌🏽"
-      )
-    } else {
-      console.log("Create your Semaphore identity 👆🏽")
+      localStorage.setItem(localStorageTag, identity.toString())
+
+      console.log("Your new Semaphore identity was just created 🎉")
     }
-  }, [localStorageTag])
-
-  const createIdentity = async () => {
-    const identity = new Identity()
-
-    setIdentity(identity)
-
-    localStorage.setItem(localStorageTag, identity.toString())
-
-    console.log("Your new Semaphore identity was just created 🎉")
   }
 
   const renderIdentity = () => {
@@ -103,6 +108,13 @@ export default function Home() {
         <div className="flex justify-center items-center mt-5">
           {_identity ? (
             renderIdentity()
+          ) : !active ? (
+            <button
+              className="flex justify-center items-center w-auto space-x-3 verify-btn text-lg font-medium rounded-md px-5 py-3 bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-800 hover:to-indigo-800 text-slate-100"
+              onClick={() => activate(injectedConnector)}
+            >
+              Connect Metamask
+            </button>
           ) : (
             <button
               className="flex justify-center items-center w-auto space-x-3 verify-btn text-lg font-medium rounded-md px-5 py-3 bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-800 hover:to-indigo-800 text-slate-100"
