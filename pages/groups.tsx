@@ -25,7 +25,7 @@ export default function GroupsPage() {
   const getUsers = useCallback(async () => {
     setRenderInfoLoading(true)
     const users = await getMembersGroup(groupId)
-    setUsers(users!.reverse())
+    setUsers(users)
     setRenderInfoLoading(false)
     return users
   }, [groupId])
