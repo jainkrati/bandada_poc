@@ -152,7 +152,7 @@ export default function GroupsPage() {
       <div className="lg:w-2/5 md:w-2/4 w-full">
         <div className="flex justify-between items-center mb-10">
           <div className="text-2xl font-semibold text-slate-700">
-            Feedback users ({_users?.length})
+            Eligible users to vote ({_users?.length})
           </div>
           <div>
             <button

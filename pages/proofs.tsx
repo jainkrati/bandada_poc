@@ -130,7 +130,7 @@ export default function ProofsPage() {
       <div className="lg:w-2/5 md:w-2/4 w-full">
         <div className="flex justify-between items-center mb-10">
           <div className="text-2xl font-semibold text-slate-700">
-            Feedback signals ({_feedback?.length})
+            Project Votes ({_feedback?.length})
           </div>
           <div>
             <button
@@ -149,14 +149,14 @@ export default function ProofsPage() {
             disabled={_loading || _renderInfoLoading}
           >
             {_loading && <div className="loader"></div>}
-            <span>Send Feedback</span>
+            <span>Vote a Project</span>
           </button>
         </div>
 
         {_renderInfoLoading && (
           <div className="flex justify-center items-center mt-20 gap-2">
             <div className="loader-app"></div>
-            <div>Fetching feedback</div>
+            <div>Fetching votes</div>
           </div>
         )}
 
